@@ -1,0 +1,1599 @@
+% annote.bib
+% Author: Adam Duby
+
+% Advisor:
+% Yanyan Zhuang (Operating Systems and Software Engineering)
+
+% Committee Members:
+% Edward Chow (Engineering Security)
+% Jason Upchuch (Malware Forensics and Reverse Engineering)
+% Qing Yi (Compilers)
+
+% \emph{text} Italics
+%  \textbf{text} Bold
+
+@inproceedings{koocompiler,
+  title={Compiler-assisted Code Randomization},
+  author={Koo, Hyungjoon and Chen, Yaohui and Lu, Long and Kemerlis, Vasileios P and Polychronakis, Michalis},
+  booktitle={Compiler-assisted Code Randomization},
+  organization={IEEE}
+}
+
+@inproceedings{rudd2017address,
+  title={Address-Oblivious Code Reuse: On the Effectiveness of Leakage Resilient Diversity},
+  author={Rudd, Robert and Skowyra, Richard and Bigelow, David and Dedhia, Veer and Hobson, Thomas and Crane, Stephen and Liebchen, Christopher and Larsen, Per and Davi, Lucas and Franz, Michael and others},
+  booktitle={Proceedings of the Network and Distributed System Security Symposium (NDSS’17)},
+  year={2017}
+}
+
+@InProceedings{Rauti14,
+  author    = {Sampsa Rauti and Samuel Laur\'{e}n and Shohreh Hosseinzadeh and Jari-Matti M\"{a}kel\"{a} and Sami Hyrynsalmi and Ville Lepp\"{a}nen},
+  title     = {Diversification of System Calls in Linux Binaries},
+  booktitle = {Proc. INTRUST'14},
+  year      = {2014},
+  pages		= {15-35},
+  month     = {Dec},
+  annote    = {The authors propose a system call diversification technique that randomizes the system call numbers in the Linux syscall table. The intent is to protect computers from malicious code that is executed as its own process or as part of another process. It appears that they diversify once after compilation, but before execution, then perform a linear sweep on all compiled binaries to search for SYSCALL and replace the argument with the new syscall number. I suspect that this approach leaves the system vulnerable to code reuse attacks. Another thing the authors do not consider is cloning, which is when a fork() creates a duplicate mapping, which can maybe leak memory mappings to system calls. I also suspect this approach is vulnerable to memory leaks. We need to investigate the effects on the GOT and PLT with this approach. The authors also acknowledge the difficulty in accurately updating the register arguments for the syscall numbers during the linear sweep due to gaps in code. It will also be interesting to see if this approach can be duplicated in Windows by hooking ntdll.dll.}
+}
+
+@inproceedings{szekeres2013sok,
+  title={Sok: Eternal war in memory},
+  author={Szekeres, Laszlo and Payer, Mathias and Wei, Tao and Song, Dawn},
+  booktitle={Security and Privacy (SP), 2013 IEEE Symposium on},
+  pages={48--62},
+  year={2013},
+  organization={IEEE}
+}
+
+@inproceedings{pappas2012smashing,
+  title={Smashing the gadgets: Hindering return-oriented programming using in-place code randomization},
+  author={Pappas, Vasilis and Polychronakis, Michalis and Keromytis, Angelos D},
+  booktitle={Security and Privacy (SP), 2012 IEEE Symposium on},
+  pages={601--615},
+  year={2012},
+  organization={IEEE}
+}
+
+@inproceedings{kc2003countering,
+  title={Countering code-injection attacks with instruction-set randomization},
+  author={Kc, Gaurav S and Keromytis, Angelos D and Prevelakis, Vassilis},
+  booktitle={Proceedings of the 10th ACM conference on Computer and communications security},
+  pages={272--280},
+  year={2003},
+  organization={ACM}
+}
+
+@inproceedings{crane2015readactor,
+  title={Readactor: Practical code randomization resilient to memory disclosure},
+  author={Crane, Stephen and Liebchen, Christopher and Homescu, Andrei and Davi, Lucas and Larsen, Per and Sadeghi, Ahmad-Reza and Brunthaler, Stefan and Franz, Michael},
+  booktitle={Security and Privacy (SP), 2015 IEEE Symposium on},
+  pages={763--780},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{wartell2012binary,
+  title={Binary stirring: Self-randomizing instruction addresses of legacy x86 binary code},
+  author={Wartell, Richard and Mohan, Vishwath and Hamlen, Kevin W and Lin, Zhiqiang},
+  booktitle={Proceedings of the 2012 ACM conference on Computer and communications security},
+  pages={157--168},
+  year={2012},
+  organization={ACM}
+}
+
+@inproceedings{yuan2015hardware,
+  title={Hardware-assisted fine-grained code-reuse attack detection},
+  author={Yuan, Pinghai and Zeng, Qingkai and Ding, Xuhua},
+  booktitle={International Workshop on Recent Advances in Intrusion Detection},
+  pages={66--85},
+  year={2015},
+  organization={Springer}
+}
+
+@inbook{pappas2013practical,
+  title={Practical software diversification using in-place code randomization},
+  author={Pappas, Vasilis and Polychronakis, Michalis and Keromytis, Angelos D},
+  booktitle={Moving Target Defense II},
+  pages={175--202},
+  year={2013},
+  publisher={Springer}
+}
+
+@inproceedings{crane2013booby,
+  title={Booby trapping software},
+  author={Crane, Stephen and Larsen, Per and Brunthaler, Stefan and Franz, Michael},
+  booktitle={Proceedings of the 2013 New Security Paradigms Workshop},
+  pages={95--106},
+  year={2013},
+  organization={ACM}
+}
+
+@article{team2003pax,
+  title={PaX address space layout randomization (ASLR)},
+  author={Team, PaX},
+  year={2003}
+}
+
+@article{friedman2015chronomorphic,
+  title={Chronomorphic programs: Runtime diversity prevents exploits and reconnaissance},
+  author={Friedman, Scott E and Musliner, David J and Keller, Peter K},
+  journal={International Journal on Advances in Security},
+  volume={8},
+  number={3-4},
+  pages={120--129},
+  year={2015}
+}
+
+@inproceedings{hawkins2017mixr,
+  title={Mixr: Flexible Runtime Rerandomization for Binaries},
+  author={Hawkins, William and Nguyen-Tuong, Anh and Hiser, Jason D and Co, Michele and Davidson, Jack W},
+  booktitle={Proceedings of the 2017 Workshop on Moving Target Defense},
+  pages={27--37},
+  year={2017},
+  organization={ACM}
+}
+
+@inproceedings{crane2016code,
+  title={Code randomization: Haven’t we solved this problem yet?},
+  author={Crane, Stephen and Homescu, Andrei and Larsen, Per},
+  booktitle={Cybersecurity Development (SecDev), IEEE},
+  pages={124--129},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{chen2017codearmor,
+  title={CodeArmor: Virtualizing the code space to counter disclosure attacks},
+  author={Chen, Xi and Bos, Herbert and Giuffrida, Cristiano},
+  booktitle={Security and Privacy (EuroS\&P), 2017 IEEE European Symposium on},
+  pages={514--529},
+  year={2017},
+  organization={IEEE}
+}
+
+@inproceedings{pomonis2017kr,
+  title={kR\^{} X: Comprehensive Kernel Protection against Just-In-Time Code Reuse},
+  author={Pomonis, Marios and Petsios, Theofilos and Keromytis, Angelos D and Polychronakis, Michalis and Kemerlis, Vasileios P},
+  booktitle={Proceedings of the Twelfth European Conference on Computer Systems},
+  pages={420--436},
+  year={2017},
+  organization={ACM}
+}
+
+@inproceedings{morton2017defeating,
+  title={Defeating zombie gadgets by re-randomizing code upon disclosure},
+  author={Morton, Micah and Koo, Hyungjoon and Li, Forrest and Snow, Kevin Z and Polychronakis, Michalis and Monrose, Fabian},
+  booktitle={International Symposium on Engineering Secure Software and Systems},
+  pages={143--160},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{avery2017ghost,
+  title={Ghost patches: Fake patches for fake vulnerabilities},
+  author={Avery, Jeffrey and Spafford, Eugene H},
+  booktitle={IFIP International Conference on ICT Systems Security and Privacy Protection},
+  pages={399--412},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{araujo2014patches,
+  title={From patches to honey-patches: Lightweight attacker misdirection, deception, and disinformation},
+  author={Araujo, Frederico and Hamlen, Kevin W and Biedermann, Sebastian and Katzenbeisser, Stefan},
+  booktitle={Proceedings of the 2014 ACM SIGSAC conference on computer and communications security},
+  pages={942--953},
+  year={2014},
+  organization={ACM}
+}
+
+@inproceedings{araujo2015compiler,
+  title={Compiler-instrumented, Dynamic Secret-Redaction of Legacy Processes for Attacker Deception.},
+  author={Araujo, Frederico and Hamlen, Kevin W},
+  booktitle={USENIX Security Symposium},
+  pages={145--159},
+  year={2015}
+}
+
+@incollection{araujo2016embedded,
+  title={Embedded honeypotting},
+  author={Araujo, Frederico and Hamlen, Kevin W},
+  booktitle={Cyber Deception},
+  pages={201--231},
+  year={2016},
+  publisher={Springer}
+}
+
+@inproceedings{lundquist2016searching,
+  title={Searching for software diversity: attaining artificial diversity through program synthesis},
+  author={Lundquist, Gilmore R and Mohan, Vishwath and Hamlen, Kevin W},
+  booktitle={Proceedings of the 2016 New Security Paradigms Workshop},
+  pages={80--91},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{lu2016make,
+  title={How to Make ASLR Win the Clone Wars: Runtime Re-Randomization.},
+  author={Lu, Kangjie and Lee, Wenke and N{\"u}rnberger, Stefan and Backes, Michael},
+  booktitle={NDSS},
+  year={2016}
+}
+
+@inproceedings{jang2016breaking,
+  title={Breaking kernel address space layout randomization with intel TSX},
+  author={Jang, Yeongjin and Lee, Sangho and Kim, Taesoo},
+  booktitle={Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security},
+  pages={380--392},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{hu2017mirage,
+  title={MIRAGE: Randomizing large chunk allocation via dynamic binary instrumentation},
+  author={Hu, Zhenghao and Zhang, Yuanyuan and Wang, Hui and Li, Juanru and Yang, Wenbo and Gu, Dawu},
+  booktitle={Dependable and Secure Computing, 2017 IEEE Conference on},
+  pages={98--106},
+  year={2017},
+  organization={IEEE}
+}
+
+@inproceedings{chen2017you,
+  title={What You See is Not What You Get! Thwarting Just-in-Time ROP with Chameleon},
+  author={Chen, Ping and Xu, Jun and Hu, Zhisheng and Xing, Xinyu and Zhu, Minghui and Mao, Bing and Liu, Peng},
+  booktitle={Dependable Systems and Networks (DSN), 2017 47th Annual IEEE/IFIP International Conference on},
+  pages={451--462},
+  year={2017},
+  organization={IEEE}
+}
+
+@inproceedings{davi2015isomeron,
+  title={Isomeron: Code Randomization Resilient to (Just-In-Time) Return-Oriented Programming.},
+  author={Davi, Lucas and Liebchen, Christopher and Sadeghi, Ahmad-Reza and Snow, Kevin Z and Monrose, Fabian},
+  booktitle={NDSS},
+  year={2015}
+}
+
+@inproceedings{crane2015s,
+  title={It's a TRaP: Table randomization and protection against function-reuse attacks},
+  author={Crane, Stephen J and Volckaert, Stijn and Schuster, Felix and Liebchen, Christopher and Larsen, Per and Davi, Lucas and Sadeghi, Ahmad-Reza and Holz, Thorsten and De Sutter, Bjorn and Franz, Michael},
+  booktitle={Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security},
+  pages={243--255},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{tang2015heisenbyte,
+  title={Heisenbyte: Thwarting memory disclosure attacks using destructive code reads},
+  author={Tang, Adrian and Sethumadhavan, Simha and Stolfo, Salvatore},
+  booktitle={Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security},
+  pages={256--267},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{sadeghi2015securing,
+  title={Securing Legacy Software against Real-World Code-Reuse Exploits: Utopia, Alchemy, or Possible Future?},
+  author={Sadeghi, Ahmad-Reza and Davi, Lucas and Larsen, Per},
+  booktitle={Proceedings of the 10th ACM Symposium on Information, Computer and Communications Security},
+  pages={55--61},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{jangda2015adaptive,
+  title={Adaptive just-in-time code diversification},
+  author={Jangda, Abhinav and Mishra, Mohit and De Sutter, Bjorn},
+  booktitle={Proceedings of the Second ACM Workshop on Moving Target Defense},
+  pages={49--53},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{chen2016remix,
+  title={Remix: On-demand live randomization},
+  author={Chen, Yue and Wang, Zhi and Whalley, David and Lu, Long},
+  booktitle={Proceedings of the Sixth ACM Conference on Data and Application Security and Privacy},
+  pages={50--61},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{brookes2016exoshim,
+  title={Exoshim: Preventing memory disclosure using execute-only kernel code},
+  author={Brookes, Scott and Denz, Robert and Osterloh, Martin and Taylor, Stephen},
+  booktitle={Proceedings of the 11th International Conference on Cyber Warfare and Security},
+  pages={56--66},
+  year={2016}
+}
+
+@inproceedings{werner2016no,
+  title={No-execute-after-read: Preventing code disclosure in commodity software},
+  author={Werner, Jan and Baltas, George and Dallara, Rob and Otterness, Nathan and Snow, Kevin Z and Monrose, Fabian and Polychronakis, Michalis},
+  booktitle={Proceedings of the 11th ACM on Asia Conference on Computer and Communications Security},
+  pages={35--46},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{koo2016juggling,
+  title={Juggling the gadgets: Binary-level code randomization using instruction displacement},
+  author={Koo, Hyungjoon and Polychronakis, Michalis},
+  booktitle={Proceedings of the 11th ACM on Asia Conference on Computer and Communications Security},
+  pages={23--34},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{snow2016return,
+  title={Return to the zombie gadgets: Undermining destructive code reads via code inference attacks},
+  author={Snow, Kevin Z and Rogowski, Roman and Werner, Jan and Koo, Hyungjoon and Monrose, Fabian and Polychronakis, Michalis},
+  booktitle={Security and Privacy (SP), 2016 IEEE Symposium on},
+  pages={954--968},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{williams2016shuffler,
+  title={Shuffler: Fast and Deployable Continuous Code Re-Randomization.},
+  author={Williams-King, David and Gobieski, Graham and Williams-King, Kent and Blake, James P and Yuan, Xinhao and Colp, Patrick and Zheng, Michelle and Kemerlis, Vasileios P and Yang, Junfeng and Aiello, William},
+  booktitle={OSDI},
+  pages={367--382},
+  year={2016}
+}
+
+@inproceedings{chen2015practical,
+  title={A practical approach for adaptive data structure layout randomization},
+  author={Chen, Ping and Xu, Jun and Lin, Zhiqiang and Xu, Dongyan and Mao, Bing and Liu, Peng},
+  booktitle={European Symposium on Research in Computer Security},
+  pages={69--89},
+  year={2015},
+  organization={Springer}
+}
+
+@inproceedings{mohan2015opaque,
+  title={Opaque Control-Flow Integrity.},
+  author={Mohan, Vishwath and Larsen, Per and Brunthaler, Stefan and Hamlen, Kevin W and Franz, Michael},
+  booktitle={NDSS},
+  volume={26},
+  pages={27--30},
+  year={2015}
+}
+
+@inproceedings{zhang2015control,
+  title={Control flow and code integrity for COTS binaries: An effective defense against real-world ROP attacks},
+  author={Zhang, Mingwei and Sekar, R},
+  booktitle={Proceedings of the 31st Annual Computer Security Applications Conference},
+  pages={91--100},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{conti2015losing,
+  title={Losing control: On the effectiveness of control-flow integrity under stack attacks},
+  author={Conti, Mauro and Crane, Stephen and Davi, Lucas and Franz, Michael and Larsen, Per and Negro, Marco and Liebchen, Christopher and Qunaibit, Mohaned and Sadeghi, Ahmad-Reza},
+  booktitle={Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security},
+  pages={952--963},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{prakash2015defeating,
+  title={Defeating ROP through denial of stack pivot},
+  author={Prakash, Aravind and Yin, Heng},
+  booktitle={Proceedings of the 31st Annual Computer Security Applications Conference},
+  pages={111--120},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{bigelow2015timely,
+  title={Timely rerandomization for mitigating memory disclosures},
+  author={Bigelow, David and Hobson, Thomas and Rudd, Robert and Streilein, William and Okhravi, Hamed},
+  booktitle={Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security},
+  pages={268--279},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{sinha2017reviving,
+  title={Reviving instruction set randomization},
+  author={Sinha, Kanad and Kemerlis, Vasileios P and Sethumadhavan, Simha},
+  booktitle={Hardware Oriented Security and Trust (HOST), 2017 IEEE International Symposium on},
+  pages={21--28},
+  year={2017},
+  organization={IEEE}
+}
+
+@article{nakayama2018high,
+  title={High-performance and Secure Just-in-time Compiler Protection (preliminary version)},
+  author={Nakayama, Tomoyuki and Misono, Masanori and Shinagawa, Takahiro},
+  journal={Bulletin of Networking, Computing, Systems, and Software},
+  volume={7},
+  number={1},
+  pages={59--65},
+  year={2018}
+}
+
+@inproceedings{snow2013just,
+  title={Just-in-time code reuse: On the effectiveness of fine-grained address space layout randomization},
+  author={Snow, Kevin Z and Monrose, Fabian and Davi, Lucas and Dmitrienko, Alexandra and Liebchen, Christopher and Sadeghi, Ahmad-Reza},
+  booktitle={Security and Privacy (SP), 2013 IEEE Symposium on},
+  pages={574--588},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{larsen2015automated,
+  title={Automated software diversity},
+  author={Larsen, Per and Brunthaler, Stefan and Davi, Lucas and Sadeghi, Ahmad-Reza and Franz, Michael},
+  journal={Synthesis Lectures on Information Security, Privacy, \& Trust},
+  volume={10},
+  number={2},
+  year={2015},
+  publisher={Morgan \& Claypool Publishers}
+}
+
+@inproceedings{larsen2014sokautomated,
+  title={Automated software diversity},
+  author={Larsen, Per and Homescu, Andrei and Brunthaler, Stefan and Franz, Michael},
+  booktitle={Security and Privacy (SP), 2014 IEEE Symposium on},
+  year={2014},
+  organization={IEEE}
+}
+
+@inproceedings{homescu2013profile,
+  title={Profile-guided automated software diversity},
+  author={Homescu, Andrei and Neisius, Steven and Larsen, Per and Brunthaler, Stefan and Franz, Michael},
+  booktitle={Proceedings of the 2013 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)},
+  pages={1--11},
+  year={2013},
+  organization={IEEE Computer Society}
+}
+
+@article{homescu2017large,
+  title={Large-scale automated software diversity—program evolution redux},
+  author={Homescu, Andrei and Jackson, Todd and Crane, Stephen and Brunthaler, Stefan and Larsen, Per and Franz, Michael},
+  journal={IEEE Transactions on Dependable and Secure Computing},
+  volume={14},
+  number={2},
+  pages={158--171},
+  year={2017},
+  publisher={IEEE}
+}
+
+@inproceedings{jiang2007randsys,
+  title={Randsys: Thwarting code injection attacks with system service interface randomization},
+  author={Jiang, Xuxian and Wangz, Helen J and Xu, Dongyan and Wang, Yi-Min},
+  booktitle={Reliable Distributed Systems, 2007. SRDS 2007. 26th IEEE International Symposium on},
+  pages={209--218},
+  year={2007},
+  organization={IEEE}
+}
+
+@inproceedings{schuster2015counterfeit,
+  title={Counterfeit object-oriented programming: On the difficulty of preventing code reuse attacks in C++ applications},
+  author={Schuster, Felix and Tendyck, Thomas and Liebchen, Christopher and Davi, Lucas and Sadeghi, Ahmad-Reza and Holz, Thorsten},
+  booktitle={Security and Privacy (SP), 2015 IEEE Symposium on},
+  pages={745--762},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{kuznetsov2014code,
+  title={Code-Pointer Integrity.},
+  author={Kuznetsov, Volodymyr and Szekeres, L{\'a}szl{\'o} and Payer, Mathias and Candea, George and Sekar, R and Song, Dawn},
+  booktitle={OSDI},
+  volume={14},
+  year={2014}
+}
+
+@inproceedings{lattner2004llvm,
+  title={LLVM: A compilation framework for lifelong program analysis \& transformation},
+  author={Lattner, Chris and Adve, Vikram},
+  booktitle={Proceedings of the international symposium on Code generation and optimization: feedback-directed and runtime optimization},
+  pages={75},
+  year={2004},
+  organization={IEEE Computer Society}
+}
+
+@inproceedings{bletsch2011jump,
+  title={Jump-oriented programming: a new class of code-reuse attack},
+  author={Bletsch, Tyler and Jiang, Xuxian and Freeh, Vince W and Liang, Zhenkai},
+  booktitle={Proceedings of the 6th ACM Symposium on Information, Computer and Communications Security},
+  pages={30--40},
+  year={2011},
+  organization={ACM}
+}
+
+@inproceedings{bletsch2011mitigating,
+  title={Mitigating code-reuse attacks with control-flow locking},
+  author={Bletsch, Tyler and Jiang, Xuxian and Freeh, Vince},
+  booktitle={Proceedings of the 27th Annual Computer Security Applications Conference},
+  pages={353--362},
+  year={2011},
+  organization={ACM}
+}
+
+@inproceedings{goktacs2014size,
+  title={Size does matter: Why using gadget-chain length to prevent code-reuse attacks is hard},
+  author={G{\"o}kta{\c{s}}, Enes and Athanasopoulos, Elias and Polychronakis, Michalis and Bos, Herbert and Portokalidis, Georgios},
+  booktitle={Proceedings of the 23rd USENIX conference on Security Symposium},
+  pages={417--432},
+  year={2014},
+  organization={USENIX Association}
+}
+
+@article{cheng2014ropecker,
+  title={ROPecker: A generic and practical approach for defending against ROP attack},
+  author={Cheng, Yueqiang and Zhou, Zongwei and Miao, Yu and Ding, Xuhua and Deng, Huijie and others},
+  year={2014},
+  publisher={Internet Society}
+}
+
+@inproceedings{dinaburg2014mcsema,
+  title={Mcsema: Static translation of x86 instructions to llvm},
+  author={Dinaburg, Artem and Ruef, Andrew},
+  booktitle={ReCon 2014 Conference, Montreal, Canada},
+  year={2014}
+}
+
+@article{zeng2018debugging,
+  title={From Debugging-Information Based Binary-Level Type Inference to CFG Generation},
+  author={Zeng, Dongrui and Tan, Gang},
+  year={2018}
+}
+
+@inproceedings{banescu2017detecting,
+  title={Detecting patching of executables without system calls},
+  author={Banescu, Sebastian and Ahmadvand, Mohsen and Pretschner, Alexander and Shield, Robert and Hamilton, Chris},
+  booktitle={Proceedings of the Seventh ACM on Conference on Data and Application Security and Privacy},
+  pages={185--196},
+  year={2017},
+  organization={ACM}
+}
+
+@inproceedings{elsabagh2017detecting,
+  title={Detecting ROP with Statistical Learning of Program Characteristics},
+  author={Elsabagh, Mohamed and Barbar{\'a}, Daniel and Fleck, Dan and Stavrou, Angelos},
+  booktitle={Proceedings of the Seventh ACM on Conference on Data and Application Security and Privacy},
+  pages={219--226},
+  year={2017},
+  organization={ACM}
+}
+
+@inproceedings{lu2015aslr,
+  title={ASLR-Guard: Stopping address space leakage for code reuse attacks},
+  author={Lu, Kangjie and Song, Chengyu and Lee, Byoungyoung and Chung, Simon P and Kim, Taesoo and Lee, Wenke},
+  booktitle={Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security},
+  pages={280--291},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{giuffrida2012enhanced,
+  title={Enhanced Operating System Security Through Efficient and Fine-grained Address Space Randomization.},
+  author={Giuffrida, Cristiano and Kuijsten, Anton and Tanenbaum, Andrew S},
+  booktitle={USENIX Security Symposium},
+  pages={475--490},
+  year={2012}
+}
+
+@inproceedings{christoulakis2016hcfi,
+  title={Hcfi: Hardware-enforced control-flow integrity},
+  author={Christoulakis, Nick and Christou, George and Athanasopoulos, Elias and Ioannidis, Sotiris},
+  booktitle={Proceedings of the Sixth ACM Conference on Data and Application Security and Privacy},
+  pages={38--49},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{gu2016derandomizing,
+  title={Derandomizing kernel address space layout for memory introspection and forensics},
+  author={Gu, Yufei and Lin, Zhiqiang},
+  booktitle={Proceedings of the Sixth ACM Conference on Data and Application Security and Privacy},
+  pages={62--72},
+  year={2016},
+  organization={ACM}
+}
+
+@article{hu2016scalable,
+  title={Scalable malware classification with multifaceted content features and threat intelligence},
+  author={Hu, Xin and Jang, Jiyong and Wang, Ting and Ashraf, Z and Stoecklin, M Ph and Kirat, Dhilung},
+  journal={IBM Journal of Research and Development},
+  volume={60},
+  number={4},
+  pages={6--1},
+  year={2016},
+  publisher={IBM}
+}
+
+@article{xu2018precise,
+  title={Precise and Scalable Detection of Double-Fetch Bugs in OS Kernels},
+  author={Xu, Meng and Qian, Chenxiong and Lu, Kangjie and Backes, Michael and Kim, Taesoo},
+  year={2018}
+}
+
+@inproceedings{ge2017evil,
+  title={An evil copy: how the loader betrays you},
+  author={Ge, Xinyang and Payer, Mathias and Jaeger, Trent},
+  booktitle={Network \& Distributed System Security Conference},
+  pages={22},
+  year={2017}
+}
+
+@inproceedings{bittau2014hacking,
+  title={Hacking blind},
+  author={Bittau, Andrea and Belay, Adam and Mashtizadeh, Ali and Mazi{\`e}res, David and Boneh, Dan},
+  booktitle={Security and Privacy (SP), 2014 IEEE Symposium on},
+  pages={227--242},
+  year={2014},
+  organization={IEEE}
+}
+
+@inproceedings{evans2015missing,
+  title={Missing the point (er): On the effectiveness of code pointer integrity},
+  author={Evans, Isaac and Fingeret, Sam and Gonzalez, Julian and Otgonbaatar, Ulziibayar and Tang, Tiffany and Shrobe, Howard and Sidiroglou-Douskos, Stelios and Rinard, Martin and Okhravi, Hamed},
+  booktitle={Security and Privacy (SP), 2015 IEEE Symposium on},
+  pages={781--796},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{schwartz2011q,
+  title={Q: Exploit Hardening Made Easy.},
+  author={Schwartz, Edward J and Avgerinos, Thanassis and Brumley, David},
+  booktitle={USENIX Security Symposium},
+  pages={25--41},
+  year={2011}
+}
+
+@article{roemer2012return,
+  title={Return-oriented programming: Systems, languages, and applications},
+  author={Roemer, Ryan and Buchanan, Erik and Shacham, Hovav and Savage, Stefan},
+  journal={ACM Transactions on Information and System Security (TISSEC)},
+  volume={15},
+  number={1},
+  pages={2},
+  year={2012},
+  publisher={ACM}
+}
+
+@inproceedings{payer2013string,
+  title={String oriented programming: when ASLR is not enough},
+  author={Payer, Mathias and Gross, Thomas R},
+  booktitle={Proceedings of the 2nd ACM SIGPLAN Program Protection and Reverse Engineering Workshop},
+  pages={2},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{buchanan2008good,
+  title={When good instructions go bad: Generalizing return-oriented programming to RISC},
+  author={Buchanan, Erik and Roemer, Ryan and Shacham, Hovav and Savage, Stefan},
+  booktitle={Proceedings of the 15th ACM conference on Computer and communications security},
+  pages={27--38},
+  year={2008},
+  organization={ACM}
+}
+
+@inproceedings{srivastava2008system,
+  title={System call API obfuscation},
+  author={Srivastava, Abhinav and Lanzi, Andrea and Giffin, Jonathon},
+  booktitle={International Workshop on Recent Advances in Intrusion Detection},
+  pages={421--422},
+  year={2008},
+  organization={Springer}
+}
+
+@inproceedings{kawakoya2017stealth,
+  title={Stealth Loader: Trace-Free Program Loading for API Obfuscation},
+  author={Kawakoya, Yuhei and Shioji, Eitaro and Otsuki, Yuto and Iwamura, Makoto and Yada, Takeshi},
+  booktitle={International Symposium on Research in Attacks, Intrusions, and Defenses},
+  pages={217--237},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{gens2017lazarus,
+  title={LAZARUS: Practical Side-Channel Resilient Kernel-Space Randomization},
+  author={Gens, David and Arias, Orlando and Sullivan, Dean and Liebchen, Christopher and Jin, Yier and Sadeghi, Ahmad-Reza},
+  booktitle={International Symposium on Research in Attacks, Intrusions, and Defenses},
+  pages={238--258},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{nyman2017cfi,
+  title={CFI CaRE: Hardware-Supported Call and Return Enforcement for Commercial Microcontrollers},
+  author={Nyman, Thomas and Ekberg, Jan-Erik and Davi, Lucas and Asokan, N},
+  booktitle={International Symposium on Research in Attacks, Intrusions, and Defenses},
+  pages={259--284},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{abrath2015obfuscating,
+  title={Obfuscating windows dlls},
+  author={Abrath, Bert and Coppens, Bart and Volckaert, Stijn and De Sutter, Bjorn},
+  booktitle={Software Protection (SPRO), 2015 IEEE/ACM 1st International Workshop on},
+  pages={24--30},
+  year={2015},
+  organization={IEEE},
+  annote={This paper proposes two techniques to diversify the interface between user programs and the kernel by obfuscating Windows DLLs. The first method removes the IAT from the compiled binary and introduces a custom loader to load APIs from a hash table. They use LoadLibrary(), which is resolved by traversing the PEB, similar to how shellcode achieves position independence. The implement this via a link-time rewriter in the Diablo framework. The second method is to statically link the precompiled DLLs into the binary and apply diversification. They lift the binary into Diablo's IR, obfuscate the IR, then further randomize code placement. This increases the size of the binary, and removes portability across different Windows versions. They do not consider runtime explicit linking nor linking by ordinal.}
+}
+
+@inproceedings{lauren2014symbol,
+  title={Symbol diversification of linux binaries},
+  author={Laur{\'e}n, Samuel and M{\"a}ki, Petteri and Rauti, Sampsa and Hosseinzadeh, Shohreh and Hyrynsalmi, Sami and Lepp{\"a}nen, Ville},
+  booktitle={Internet Security (WorldCIS), 2014 World Congress on},
+  pages={74--79},
+  year={2014},
+  organization={IEEE}
+}
+
+@incollection{jackson2011compiler,
+  title={Compiler-generated software diversity},
+  author={Jackson, Todd and Salamat, Babak and Homescu, Andrei and Manivannan, Karthikeyan and Wagner, Gregor and Gal, Andreas and Brunthaler, Stefan and Wimmer, Christian and Franz, Michael},
+  booktitle={Moving Target Defense},
+  pages={77--98},
+  year={2011},
+  publisher={Springer}
+}
+
+@inproceedings{bhatkar2008data,
+  title={Data space randomization},
+  author={Bhatkar, Sandeep and Sekar, R},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={1--22},
+  year={2008},
+  organization={Springer}
+}
+
+@article{chew2002mitigating,
+  title={Mitigating buffer overflows by operating system randomization},
+  author={Chew, Monica and Song, Dawn},
+  year={2002},
+  publisher={Citeseer}
+}
+
+@article{rauti2018internal,
+  title={Internal Interface Diversification as a Security Measure in Sensor Networks},
+  author={Rauti, Sampsa and Koivunen, Lauri and M{\"a}ki, Petteri and Hosseinzadeh, Shohreh and Laur{\'e}n, Samuel and Holvitie, Johannes and Lepp{\"a}nen, Ville},
+  journal={Journal of Sensor and Actuator Networks},
+  volume={7},
+  number={1},
+  pages={12},
+  year={2018},
+  publisher={Multidisciplinary Digital Publishing Institute}
+}
+
+@inproceedings{li2010defeating,
+  title={Defeating return-oriented rootkits with return-less kernels},
+  author={Li, Jinku and Wang, Zhi and Jiang, Xuxian and Grace, Michael and Bahram, Sina},
+  booktitle={Proceedings of the 5th European conference on Computer systems},
+  pages={195--208},
+  year={2010},
+  organization={ACM}
+}
+
+@inproceedings{gionta2016preventing,
+  title={Preventing kernel code-reuse attacks through disclosure resistant code diversification},
+  author={Gionta, Jason and Enck, William and Larsen, Per},
+  booktitle={Communications and Network Security (CNS), 2016 IEEE Conference on},
+  pages={189--197},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{zhuang2014netcheck,
+  title={NetCheck: Network Diagnoses from Blackbox Traces.},
+  author={Zhuang, Yanyan and Gessiou, Eleni and Portzer, Steven and Fund, Fraida and Muhammad, Monzur and Beschastnikh, Ivan and Cappos, Justin},
+  booktitle={NSDI},
+  pages={115--128},
+  year={2014}
+}
+
+@inproceedings{lauren2015diversification,
+  title={Diversification of system calls in linux kernel},
+  author={Laur{\'e}n, Samuel and Rauti, Sampsa and Lepp{\"a}nen, Ville},
+  booktitle={Proceedings of the 16th International Conference on Computer Systems and Technologies},
+  pages={284--291},
+  year={2015},
+  organization={ACM}
+}
+
+@inproceedings{ming2015replacement,
+  title={Replacement attacks: automatically impeding behavior-based malware specifications},
+  author={Ming, Jiang and Xin, Zhi and Lan, Pengwei and Wu, Dinghao and Liu, Peng and Mao, Bing},
+  booktitle={International Conference on Applied Cryptography and Network Security},
+  pages={497--517},
+  year={2015},
+  organization={Springer}
+}
+
+@inproceedings{jones2016cardinal,
+  title={CARDINAL: similarity analysis to defeat malware compiler variations},
+  author={Jones, Luke and Sellers, Andrew and Carlisle, Martin},
+  booktitle={Malicious and Unwanted Software (MALWARE), 2016 11th International Conference on},
+  pages={1--8},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{jang2014mal,
+  title={Mal-netminer: malware classification based on social network analysis of call graph},
+  author={Jang, Jae-wook and Woo, Jiyoung and Yun, Jaesung and Kim, Huy Kang},
+  booktitle={Proceedings of the 23rd International Conference on World Wide Web},
+  pages={731--734},
+  year={2014},
+  organization={ACM}
+}
+
+@inproceedings{suenaga2009museum,
+  title={A museum of API obfuscation on Win32},
+  author={Suenaga, Masaki},
+  booktitle={Proceedings of 12th Association of Anti-Virus Asia Researchers International Conference, AVAR},
+  volume={2009},
+  year={2009}
+}
+
+@article{singh2017malware,
+  title={Malware Analysis using Multiple API Sequence Mining Control Flow Graph},
+  author={Singh, Anishka and Arora, Rohit and Pareek, Himanshu},
+  journal={arXiv preprint arXiv:1707.02691},
+  year={2017}
+}
+
+@inproceedings{choi2013static,
+  title={A static birthmark for MS windows applications using import address table},
+  author={Choi, JongCheon and Han, YongMan and Cho, Seong-je and Yoo, HaeYoung and Woo, Jinwoon and Park, Minkyu and Song, Youngsang and Chung, Lawrence},
+  booktitle={Innovative Mobile and Internet Services in Ubiquitous Computing (IMIS), 2013 Seventh International Conference on},
+  pages={129--134},
+  year={2013},
+  organization={IEEE}
+}
+
+@misc{gongclassifying,
+  title={Classifying Windows Malware with Static Analysis},
+  author={Gong, Maryann and Girkar, Uma and Xie, Benjamin}
+}
+
+@article{ahmadi2011iterative,
+  title={Iterative System Call Patterns Blow the Malware Cover},
+  author={Ahmadi, Mansour and Sami, Ashkan and Rahimi, Hossein and Yadegari, Babak},
+  journal={Security for The Next Generation},
+  year={2011}
+}
+
+@article{breitinger2014approximate,
+  title={Approximate matching: definition and terminology},
+  author={Breitinger, Frank and Guttman, Barbara and McCarrin, Michael and Roussev, Vassil and White, Douglas},
+  journal={NIST Special Publication},
+  volume={800},
+  pages={168},
+  year={2014}
+}
+
+@inproceedings{sarantinos2016forensic,
+  title={Forensic Malware Analysis: The Value of Fuzzy Hashing Algorithms in Identifying Similarities},
+  author={Sarantinos, Nikolaos and Benza{\"\i}d, Chafika and Arabiat, Omar and Al-Nemrat, Ameer},
+  booktitle={Trustcom/BigDataSE/I​ SPA, 2016 IEEE},
+  pages={1782--1787},
+  year={2016},
+  organization={IEEE}
+}
+
+@article{roussev2011evaluation,
+  title={An evaluation of forensic similarity hashes},
+  author={Roussev, Vassil},
+  journal={digital investigation},
+  volume={8},
+  pages={S34--S41},
+  year={2011},
+  publisher={Elsevier}
+}
+
+@inproceedings{cozziunderstanding,
+  title={Understanding Linux Malware},
+  author={Cozzi, Emanuele and Graziano, Mariano and Fratantonio, Yanick and Balzarotti, Davide},
+  booktitle={Understanding Linux Malware},
+  pages={0},
+  organization={IEEE}
+}
+
+@article{pagani2018beyond,
+  title={Beyond Precision and Recall: Understanding Uses (and Misuses) of Similarity Hashes in Binary Analysis},
+  author={Pagani, Fabio and Dell’Amico, Matteo and Balzarotti, Davide},
+  year={2018}
+}
+
+@inproceedings{lakhotia2013fast,
+  title={Fast location of similar code fragments using semantic 'juice'},
+  author={Lakhotia, Arun and Preda, Mila Dalla and Giacobazzi, Roberto},
+  booktitle={Proceedings of the 2nd ACM SIGPLAN Program Protection and Reverse Engineering Workshop},
+  pages={5},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{bourquin2013binslayer,
+  title={Binslayer: accurate comparison of binary executables},
+  author={Bourquin, Martial and King, Andy and Robbins, Edward},
+  booktitle={Proceedings of the 2nd ACM SIGPLAN Program Protection and Reverse Engineering Workshop},
+  pages={4},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{zwanger2013kernel,
+  title={Kernel mode API spectroscopy for incident response and digital forensics},
+  author={Zwanger, Viviane and Freiling, Felix C},
+  booktitle={Proceedings of the 2nd ACM SIGPLAN Program Protection and Reverse Engineering Workshop},
+  pages={3},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{jin2014recovering,
+  title={Recovering c++ objects from binaries using inter-procedural data-flow analysis},
+  author={Jin, Wesley and Cohen, Cory and Gennari, Jeffrey and Hines, Charles and Chaki, Sagar and Gurfinkel, Arie and Havrilla, Jeffrey and Narasimhan, Priya},
+  booktitle={Proceedings of ACM SIGPLAN on Program Protection and Reverse Engineering Workshop 2014},
+  pages={1},
+  year={2014},
+  organization={ACM}
+}
+
+@inproceedings{ahmadi2016novel,
+  title={Novel feature extraction, selection and fusion for effective malware family classification},
+  author={Ahmadi, Mansour and Ulyanov, Dmitry and Semenov, Stanislav and Trofimov, Mikhail and Giacinto, Giorgio},
+  booktitle={Proceedings of the Sixth ACM Conference on Data and Application Security and Privacy},
+  pages={183--194},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{hassen2017scalable,
+  title={Scalable Function Call Graph-based Malware Classification},
+  author={Hassen, Mehadi and Chan, Philip K},
+  booktitle={Proceedings of the Seventh ACM on Conference on Data and Application Security and Privacy},
+  pages={239--248},
+  year={2017},
+  organization={ACM}
+}
+
+@article{ronen2018microsoft,
+  title={Microsoft Malware Classification Challenge},
+  author={Ronen, Royi and Radu, Marian and Feuerstein, Corina and Yom-Tov, Elad and Ahmadi, Mansour},
+  journal={arXiv preprint arXiv:1802.10135},
+  year={2018}
+}
+
+@inproceedings{alazab2010towards,
+  title={Towards understanding malware behaviour by the extraction of API calls},
+  author={Alazab, Mamoun and Venkataraman, Sitalakshmi and Watters, Paul},
+  booktitle={Cybercrime and Trustworthy Computing Workshop (CTC), 2010 Second},
+  pages={52--59},
+  year={2010},
+  organization={IEEE}
+}
+
+@inproceedings{shirani2017binshape,
+  title={BinShape: Scalable and Robust Binary Library Function Identification Using Function Shape},
+  author={Shirani, Paria and Wang, Lingyu and Debbabi, Mourad},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={301--324},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{webster2017finding,
+  title={Finding the Needle: A Study of the PE32 Rich Header and Respective Malware Triage},
+  author={Webster, George D and Kolosnjaji, Bojan and von Pentz, Christian and Kirsch, Julian and Hanif, Zachary D and Zarras, Apostolis and Eckert, Claudia},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={119--138},
+  year={2017},
+  organization={Springer}
+}
+
+@inproceedings{kim2017dynodet,
+  title={DynODet: Detecting Dynamic Obfuscation in Malware},
+  author={Kim, Danny and Majlesi-Kupaei, Amir and Roy, Julien and Anand, Kapil and ElWazeer, Khaled and Buettner, Daniel and Barua, Rajeev},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={97--118},
+  year={2017},
+  organization={Springer}
+}
+
+@article{niemela2016statistical,
+  title={Statistical Analysis of Malware Defence Methods},
+  author={Niemel{\"a}, Jarno and others},
+  year={2016},
+  publisher={Jyv{\"a}skyl{\"a}n ammattikorkeakoulu}
+}
+
+@article{dolan2007vad,
+  title={The VAD tree: A process-eye view of physical memory},
+  author={Dolan-Gavitt, Brendan},
+  journal={digital investigation},
+  volume={4},
+  pages={62--64},
+  year={2007},
+  publisher={Elsevier},
+  annote={The authors of this paper reverse engineer and document the Virtual Address Descriptors (VAD) kernel data structure in Windows. The VAD tree, as it is called, is a self balancing binary tree that is used by the memory manager to describe memory ranges of a process address space as they are allocated. A pointer to VadRoot is a struct member in the \_EPROCESS structure. Then you can simply traverse the links to walk the tree. Each node also has a pointer to the \_CONTROL\_AREA, which if the region is used for a mapped file (DLL), the corresponding \_FILE\_OBJECT structure can be referenced and the name of the file can be extracted. This work inspired volatility plugins for memory forensics. The VAD can display mapped files that have been unlinked and hidden from the PEB. Direct Kernel Object Manipulation (DKOM) attacks can unlink VAD nodes from the tree and effectively hide
+them. "For example, a process can allocate a region of memory
+using VirtualAlloc and then reference it, forcing the memory
+manager to create the corresponding page table entries. The
+VAD node that describes the region can then be unlinked;
+the memory will no longer be visible from tools the walk the VAD, but the process will still be able to access it normally
+(memory reads appear to use the page directory to access
+memory first, and the VAD is only consulted if a page fault occurs)."}
+}
+
+@inproceedings{pek2016membrane,
+  title={Membrane: a posteriori detection of malicious code loading by memory paging analysis},
+  author={P{\'e}k, G{\'a}bor and L{\'a}z{\'a}r, Zsombor and V{\'a}rnagy, Zolt{\'a}n and F{\'e}legyh{\'a}zi, M{\'a}rk and Butty{\'a}n, Levente},
+  booktitle={European Symposium on Research in Computer Security},
+  pages={199--216},
+  year={2016},
+  organization={Springer}
+}
+
+@inproceedings{criswell2014kcofi,
+  title={KCoFI: Complete control-flow integrity for commodity operating system kernels},
+  author={Criswell, John and Dautenhahn, Nathan and Adve, Vikram},
+  booktitle={Security and Privacy (SP), 2014 IEEE Symposium on},
+  pages={292--307},
+  year={2014},
+  organization={IEEE}
+}
+
+@article{white2013integrity,
+  title={Integrity verification of user space code},
+  author={White, Andrew and Schatz, Bradley and Foo, Ernest},
+  journal={Digital Investigation},
+  volume={10},
+  pages={S59--S68},
+  year={2013},
+  publisher={Elsevier}
+}
+
+@article{white2012surveying,
+  title={Surveying the user space through user allocations},
+  author={White, Andrew and Schatz, Bradley and Foo, Ernest},
+  journal={Digital Investigation},
+  volume={9},
+  pages={S3--S12},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@article{raman2012selecting,
+  title={Selecting features to classify malware},
+  author={Raman, Karthik and others},
+  journal={InfoSec Southwest},
+  volume={2012},
+  year={2012}
+}
+
+@inproceedings{iwamoto2012malware,
+  title={Malware classification based on extracted api sequences using static analysis},
+  author={Iwamoto, Kazuki and Wasaki, Katsumi},
+  booktitle={Proceedings of the Asian Internet Engineeering Conference},
+  pages={31--38},
+  year={2012},
+  organization={ACM}
+}
+
+@article{cho2014malware,
+  title={Malware Similarity Analysis using API Sequence Alignments.},
+  author={Cho, In Kyeom and Kim, TaeGuen and Shim, Yu Jin and Park, Haeryong and Choi, Bomin and Im, Eul Gyu},
+  journal={J. Internet Serv. Inf. Secur.},
+  volume={4},
+  number={4},
+  pages={103--114},
+  year={2014}
+}
+
+@inproceedings{walenstein2007software,
+  title={The software similarity problem in malware analysis},
+  author={Walenstein, Andrew and Lakhotia, Arun},
+  booktitle={Dagstuhl Seminar Proceedings},
+  year={2007},
+  organization={Schloss Dagstuhl-Leibniz-Zentrum f{\"u}r Informatik}
+}
+
+@inproceedings{jang2011bitshred,
+  title={Bitshred: feature hashing malware for scalable triage and semantic analysis},
+  author={Jang, Jiyong and Brumley, David and Venkataraman, Shobha},
+  booktitle={Proceedings of the 18th ACM conference on Computer and communications security},
+  pages={309--320},
+  year={2011},
+  organization={ACM}
+}
+
+@article{o2011obfuscation,
+  title={Obfuscation: The hidden malware},
+  author={O'Kane, Philip and Sezer, Sakir and McLaughlin, Kieran},
+  journal={IEEE Security \& Privacy},
+  volume={9},
+  number={5},
+  pages={41--47},
+  year={2011},
+  publisher={IEEE}
+}
+
+@article{bruschi2007code,
+  title={Code normalization for self-mutating malware},
+  author={Bruschi, Danilo and Martignoni, Lorenzo and Monga, Mattia},
+  journal={IEEE Security \& Privacy},
+  volume={5},
+  number={2},
+  pages={46--54},
+  year={2007},
+  publisher={IEEE}
+}
+
+@inproceedings{bruschi2006using,
+  title={Using code normalization for fighting self-mutating malware},
+  author={Bruschi, Danilo and Martignoni, Lorenzo and Monga, Mattia},
+  booktitle={Proceedings of the International Symposium on Secure Software Engineering},
+  pages={37--44},
+  year={2006}
+}
+
+@inproceedings{bruschi2006detecting,
+  title={Detecting self-mutating malware using control-flow graph matching},
+  author={Bruschi, Danilo and Martignoni, Lorenzo and Monga, Mattia},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={129--143},
+  year={2006},
+  organization={Springer}
+}
+
+@inproceedings{preda2014analyzing,
+  title={Analyzing program dependencies for malware detection},
+  author={Preda, Mila Dalla and Mastroeni, Isabella and Giacobazzi, Roberto},
+  booktitle={Proceedings of ACM SIGPLAN on Program Protection and Reverse Engineering Workshop 2014},
+  pages={6},
+  year={2014},
+  organization={ACM}
+}
+
+@article{narouei2015dllminer,
+  title={DLLMiner: structural mining for malware detection},
+  author={Narouei, Masoud and Ahmadi, Mansour and Giacinto, Giorgio and Takabi, Hassan and Sami, Ashkan},
+  journal={Security and Communication Networks},
+  volume={8},
+  number={18},
+  pages={3311--3322},
+  year={2015},
+  publisher={Wiley Online Library}
+}
+
+@article{hasabnis2016lifting,
+  title={Lifting assembly to intermediate representation: A novel approach leveraging compilers},
+  author={Hasabnis, Niranjan and Sekar, R},
+  journal={ACM SIGPLAN Notices},
+  volume={51},
+  number={4},
+  pages={311--324},
+  year={2016},
+  publisher={ACM}
+}
+
+@article{raff2017lempel,
+  title={Lempel-Ziv Jaccard Distance, an Effective Alternative to Ssdeep and Sdhash},
+  author={Raff, Edward and Nicholas, Charles K},
+  journal={arXiv preprint arXiv:1708.03346},
+  year={2017}
+}
+
+@inproceedings{payer2014embracing,
+  title={Embracing the new threat: Towards automatically self-diversifying malware},
+  author={Payer, Mathias},
+  booktitle={The Symposium on Security for Asia Network},
+  year={2014}
+}
+
+@inproceedings{lauren2016interface,
+  title={An interface diversified honeypot for malware analysis},
+  author={Laur{\'e}n, Samuel and Rauti, Sampsa and Lepp{\"a}nen, Ville},
+  booktitle={Proccedings of the 10th European Conference on Software Architecture Workshops},
+  pages={29},
+  year={2016},
+  organization={ACM}
+}
+
+@inproceedings{ispoglou2016malwash,
+  title={malWASH: Washing Malware to Evade Dynamic Analysis.},
+  author={Ispoglou, Kyriakos K and Payer, Mathias},
+  booktitle={WOOT},
+  year={2016}
+}
+
+@inproceedings{stock2015kizzle,
+  title={Kizzle: A signature compiler for exploit kits},
+  author={Stock, Ben and Livshits, Benjamin and Zorn, Benjamin},
+  booktitle={International Conference on Dependable Systems and Networks (DSN)},
+  year={2015}
+}
+
+@article{payer2014similarity,
+  title={Similarity-based matching meets Malware Diversity},
+  author={Payer, Mathias and Crane, Stephen and Larsen, Per and Brunthaler, Stefan and Wartell, Richard and Franz, Michael},
+  journal={arXiv preprint arXiv:1409.7760},
+  year={2014}
+}
+
+@inproceedings{pitolli2017malware,
+  title={Malware family identification with BIRCH clustering},
+  author={Pitolli, Gregorio and Aniello, Leonardo and Laurenza, Giuseppe and Querzoni, Leonardo and Baldoni, Roberto},
+  booktitle={Security Technology (ICCST), 2017 International Carnahan Conference on},
+  pages={1--6},
+  year={2017},
+  organization={IEEE}
+}
+
+@inproceedings{upchurch2015variant,
+  title={Variant: a malware similarity testing framework},
+  author={Upchurch, Jason and Zhou, Xiaobo},
+  booktitle={Malicious and Unwanted Software (MALWARE), 2015 10th International Conference on},
+  pages={31--39},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{cifuentes2000procedure,
+  title={Procedure abstraction recovery from binary code},
+  author={Cifuentes, Cristina and Simon, Doug},
+  booktitle={Software Maintenance and Reengineering, 2000. Proceedings of the Fourth European},
+  pages={55--64},
+  year={2000},
+  organization={IEEE}
+}
+
+@phdthesis{mora2017feature,
+  title={Feature Selection and Improving Performance for Malware Detection},
+  author={Mora, Carlos A Cepeda},
+  year={2017},
+  school={DigitalCommons@ Kennesaw State University}
+}
+
+@inproceedings{graziano2015needles,
+  title={Needles in a haystack: mining information from public dynamic analysis sandboxes for malware intelligence},
+  author={Graziano, Mariano and Canali, Davide and Bilge, Leyla and Lanzi, Andrea and Balzarotti, Davide},
+  booktitle={USENIX Security Symposium},
+  pages={1057--1072},
+  year={2015},
+  organization={USENIX Association}
+}
+
+@inproceedings{namanya2015evaluation,
+  title={Evaluation of automated static analysis tools for malware detection in Portable Executable files},
+  author={Namanya, Anitta Patience and Pagna-Disso, Jules and Awan, Irfan},
+  booktitle={31st UK Performance Engineering Workshop},
+  pages={81},
+  year={2015}
+}
+
+@inproceedings{choi2015malware,
+  title={A Malware Classification Method Based on Generic Malware Information},
+  author={Choi, Jiyeon and Kim, HeeSeok and Choi, Jangwon and Song, Jungsuk},
+  booktitle={International Conference on Neural Information Processing},
+  pages={329--336},
+  year={2015},
+  organization={Springer}
+}
+
+@inproceedings{namanya2016detection,
+  title={Detection of malicious portable executables using evidence combinational theory with fuzzy hashing},
+  author={Namanya, Anitta Patience and Mirza, Qublai Khan Ali and Al-Mohannadi, Hamad and Awan, Irfan U and Disso, Jules Ferdinand Pagna},
+  booktitle={Future Internet of Things and Cloud (FiCloud), 2016 IEEE 4th International Conference on},
+  pages={91--98},
+  year={2016},
+  organization={IEEE}
+}
+
+@article{wicherski2009pehash,
+  title={peHash: A Novel Approach to Fast Malware Clustering.},
+  author={Wicherski, Georg},
+  journal={LEET},
+  volume={9},
+  pages={8},
+  year={2009}
+}
+
+@inproceedings{kolosnjaji2016adaptive,
+  title={Adaptive semantics-aware malware classification},
+  author={Kolosnjaji, Bojan and Zarras, Apostolis and Lengyel, Tamas and Webster, George and Eckert, Claudia},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={419--439},
+  year={2016},
+  organization={Springer}
+}
+
+@article{kotov2018towards,
+  title={Towards Generic Deobfuscation of Windows API Calls},
+  author={Kotov, Vadim and Wojnowicz, Michael},
+  journal={arXiv preprint arXiv:1802.04466},
+  year={2018}
+}
+
+@inproceedings{david2017similarity,
+  title={Similarity of Binaries through re-Optimization},
+  author={David, Yaniv and Partush, Nimrod and Yahav, Eran},
+  booktitle={Proceedings of the 38th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  pages={79--94},
+  year={2017},
+  organization={ACM}
+}
+
+@article{david2016statistical,
+  title={Statistical similarity of binaries},
+  author={David, Yaniv and Partush, Nimrod and Yahav, Eran},
+  journal={ACM SIGPLAN Notices},
+  volume={51},
+  number={6},
+  pages={266--280},
+  year={2016},
+  publisher={ACM}
+}
+
+@misc{chiueh2012selecting,
+  title={Selecting malware signatures based on malware diversity},
+  author={Chiueh, Tzi-cker and Griffin, Kent E and Schneider, Scott and Hu, Xin},
+  year={2012},
+  month=nov # "~27",
+  publisher={Google Patents},
+  note={US Patent 8,321,942}
+}
+
+@inproceedings{huang2017binsequence,
+  title={BinSequence: fast, accurate and scalable binary code reuse detection},
+  author={Huang, He and Youssef, Amr M and Debbabi, Mourad},
+  booktitle={Proceedings of the 2017 ACM on Asia Conference on Computer and Communications Security},
+  pages={155--166},
+  year={2017},
+  organization={ACM}
+}
+
+@inproceedings{upchurch2016malware,
+  title={Malware provenance: Code reuse detection in malicious software at scale},
+  author={Upchurch, Jason and Zhou, Xiaobo},
+  booktitle={Malicious and Unwanted Software (MALWARE), 2016 11th International Conference on},
+  pages={1--9},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{yi2010depsim,
+  title={DepSim: a dependency-based malware similarity comparison system},
+  author={Yi, Yang and Lingyun, Ying and Rui, Wang and Purui, Su and Dengguo, Feng},
+  booktitle={International Conference on Information Security and Cryptology},
+  pages={503--522},
+  year={2010},
+  organization={Springer}
+}
+
+@article{harichandran2016bytewise,
+  title={Bytewise approximate matching: the good, the bad, and the unknown},
+  author={Harichandran, Vikram S and Breitinger, Frank and Baggili, Ibrahim},
+  journal={The Journal of Digital Forensics, Security and Law: JDFSL},
+  volume={11},
+  number={2},
+  pages={59},
+  year={2016},
+  publisher={Association of Digital Forensics, Security and Law}
+}
+
+@inproceedings{rauti2014towards,
+  title={Towards a diversification framework for operating system protection},
+  author={Rauti, Sampsa and Holvitie, Johannes and Lepp{\"a}nen, Ville},
+  booktitle={Proceedings of the 15th International Conference on Computer Systems and Technologies},
+  pages={286--293},
+  year={2014},
+  organization={ACM}
+}
+
+@inproceedings{liang2009system,
+  title={A system call randomization based method for countering code injection attacks},
+  author={Liang, Zhaohui and Liang, Bin and Li, Lupin},
+  booktitle={International Conference on Networks Security, Wireless Communications and Trusted Computing, NSWCTC},
+  pages={584--587},
+  year={2009}
+}
+
+@inproceedings{shacham2004effectiveness,
+  title={On the effectiveness of address-space randomization},
+  author={Shacham, Hovav and Page, Matthew and Pfaff, Ben and Goh, Eu-Jin and Modadugu, Nagendra and Boneh, Dan},
+  booktitle={Proceedings of the 11th ACM conference on Computer and communications security},
+  pages={298--307},
+  year={2004},
+  organization={ACM}
+}
+
+@inproceedings{liang2009against,
+  title={Against code injection with system call randomization},
+  author={Liang, Zhaohui and Liang, Bin and Li, Luping and Chen, Wei and Kang, Qingqing and Gu, Yingqin},
+  booktitle={Networks Security, Wireless Communications and Trusted Computing, 2009. NSWCTC'09. International Conference on},
+  volume={1},
+  pages={584--587},
+  year={2009},
+  organization={IEEE}
+}
+
+@inproceedings{kemerlis2012kguard,
+  title={kGuard: Lightweight Kernel Protection against Return-to-User Attacks.},
+  author={Kemerlis, Vasileios P and Portokalidis, Georgios and Keromytis, Angelos D},
+  booktitle={USENIX Security Symposium},
+  volume={16},
+  year={2012}
+}
+
+@inproceedings{bhatkar2005efficient,
+  title={Efficient Techniques for Comprehensive Protection from Memory Error Exploits.},
+  author={Bhatkar, Sandeep and DuVarney, Daniel C and Sekar, R},
+  booktitle={USENIX Security Symposium},
+  pages={271--286},
+  year={2005}
+}
+
+@inproceedings{crane2015thwarting,
+  title={Thwarting Cache Side-Channel Attacks Through Dynamic Software Diversity.},
+  author={Crane, Stephen and Homescu, Andrei and Brunthaler, Stefan and Larsen, Per and Franz, Michael},
+  booktitle={NDSS},
+  pages={8--11},
+  year={2015}
+}
+
+@inproceedings{shacham2007geometry,
+  title={The geometry of innocent flesh on the bone: Return-into-libc without function calls (on the x86)},
+  author={Shacham, Hovav},
+  booktitle={Proceedings of the 14th ACM conference on Computer and communications security},
+  pages={552--561},
+  year={2007},
+  organization={ACM}
+}
+
+@article{wojtczuk2001advanced,
+  title={The advanced return-into-lib (c) exploits: PaX case study},
+  author={Wojtczuk, Rafal},
+  journal={Phrack Magazine, Volume 0x0b, Issue 0x3a, Phile\# 0x04 of 0x0e},
+  year={2001}
+}
+
+@inproceedings{onarlioglu2010g,
+  title={G-Free: defeating return-oriented programming through gadget-less binaries},
+  author={Onarlioglu, Kaan and Bilge, Leyla and Lanzi, Andrea and Balzarotti, Davide and Kirda, Engin},
+  booktitle={Proceedings of the 26th Annual Computer Security Applications Conference},
+  pages={49--58},
+  year={2010},
+  organization={ACM}
+}
+
+@article{cohen1993operating,
+  title={Operating system protection through program evolution.},
+  author={Cohen, Frederick B},
+  journal={Computers \& Security},
+  volume={12},
+  number={6},
+  pages={565--584},
+  year={1993}
+}
+
+@inproceedings{homescu2013librando,
+  title={Librando: transparent code randomization for just-in-time compilers},
+  author={Homescu, Andrei and Brunthaler, Stefan and Larsen, Per and Franz, Michael},
+  booktitle={Proceedings of the 2013 ACM SIGSAC conference on Computer \& communications security},
+  pages={993--1004},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{ugarte2015sok,
+  title={SoK: deep packer inspection: a longitudinal study of the complexity of run-time packers},
+  author={Ugarte-Pedrero, Xabier and Balzarotti, Davide and Santos, Igor and Bringas, Pablo G},
+  booktitle={Security and Privacy (SP), 2015 IEEE Symposium on},
+  pages={659--673},
+  year={2015},
+  organization={IEEE}
+}
+
+@article{osaghae2016classifying,
+  title={Classifying packed programs as malicious software detected},
+  author={Osaghae, Edgar O},
+  journal={ International Journal of Information Technology and Electrical Engineering},
+  volume={5},
+  number={6},
+  pages={22-25},
+  year={2016}
+}
+
+@inproceedings{lin2009polymorphing,
+  title={Polymorphing software by randomizing data structure layout},
+  author={Lin, Zhiqiang and Riley, Ryan D and Xu, Dongyan},
+  booktitle={International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment},
+  pages={107--126},
+  year={2009},
+  organization={Springer}
+}
+
+@inproceedings{cowan2003pointguard,
+  title={Pointguard TM: protecting pointers from buffer overflow vulnerabilities},
+  author={Cowan, Crispin and Beattie, Steve and Johansen, John and Wagle, Perry},
+  booktitle={Proceedings of the 12th conference on USENIX Security Symposium},
+  volume={12},
+  pages={91--104},
+  year={2003}
+}
+
+@inproceedings{porter2011rethinking,
+  title={Rethinking the library OS from the top down},
+  author={Porter, Donald E and Boyd-Wickizer, Silas and Howell, Jon and Olinsky, Reuben and Hunt, Galen C},
+  booktitle={ACM SIGPLAN Notices},
+  volume={46},
+  number={3},
+  pages={291--304},
+  year={2011},
+  organization={ACM}
+}
+
+@inproceedings{sharif2008eureka,
+  title={Eureka: A framework for enabling static malware analysis},
+  author={Sharif, Monirul and Yegneswaran, Vinod and Saidi, Hassen and Porras, Phillip and Lee, Wenke},
+  booktitle={European Symposium on Research in Computer Security},
+  pages={481--500},
+  year={2008},
+  organization={Springer}
+}
+
+@article{fewer2008reflective,
+  title={Reflective DLL injection},
+  author={Fewer, Stephen},
+  journal={Harmony Security, Version},
+  volume={1},
+  year={2008},
+  annote={This is a stealthy technique to load libraries into the address space of a target process. A small PE32 loader and a reflective loader is used to map the desired library to the address space without registering the library with the target process's PEB. I suspect a VAD walk can detect reflectively loaded DLLs.}
+}
+
+@inproceedings{strackx2009breaking,
+  title={Breaking the memory secrecy assumption},
+  author={Strackx, Raoul and Younan, Yves and Philippaerts, Pieter and Piessens, Frank and Lachmund, Sven and Walter, Thomas},
+  booktitle={Proceedings of the Second European Workshop on System Security},
+  pages={1--8},
+  year={2009},
+  organization={ACM}
+}
+
+@article{alrabaee2018fossil,
+  title={FOSSIL: A Resilient and Efficient System for Identifying FOSS Functions in Malware Binaries},
+  author={Alrabaee, Saed and Shirani, Paria and Wang, Lingyu and Debbabi, Mourad},
+  journal={ACM Transactions on Privacy and Security (TOPS)},
+  volume={21},
+  number={2},
+  pages={8},
+  year={2018},
+  publisher={ACM}
+}
+
+@manual{cffexplorer,
+  title = {{CFF Explorer}},
+  author = {{NTCore}},
+  year={2012},
+  note = {{http://www.ntcore.com/exsuite.php}}
+}
+
+@manual{imphash,
+  title = {{Tracking Malware with Import Hashing}},
+  author = {{Mandiant}},
+  year={2014},
+  note = {{https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html}}
+}
+
+@article{aleph1996smashing,
+  title={Smashing the stack for fun and profit},
+  author={Aleph, One},
+  journal={http://www. shmoo. com/phrack/Phrack49/p49-14},
+  year={1996}
+}
